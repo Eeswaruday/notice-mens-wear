@@ -231,7 +231,20 @@ function buyCart() {
         return `${item.name}\nQty: ${item.quantity}\nPrice: ${formatCurrency(item.price)}\nSubtotal: ${formatCurrency(item.price * item.quantity)}${imageText}`;
     });
     const message = `Hello Notice Men's Wear, I want to buy:\n\n${lines.join('\n\n')}\n\nTotal: ${formatCurrency(getCartTotal())}`;
-    window.open(`https://wa.me/919998569395?text=${encodeURIComponent(message)}`, '_blank');
+    const phoneNumber = "919998569395";
+
+let message = "Hello Notice Men's Wear, I want to buy:\n\n";
+
+cartItems.forEach(item => {
+    message += `${item.name} Qty: ${item.quantity} Price: ₹${item.price}\n`;
+});
+
+message += `\nTotal: ₹${getCartTotal()}`;
+
+const whatsappUrl =
+`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+window.open(whatsappUrl, "_blank");
 }
 
 document.querySelectorAll('#cartBtn').forEach(button => {
