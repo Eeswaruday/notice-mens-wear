@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Notice Men's Wear Admin</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --primary:#1A3A5C;
+    --secondary:#4A5F7F;
+    --accent:#FF6B35;
+    --white:#ffffff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+}
+
+.login-box{
+    width:350px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.1);
+    padding:40px;
+    border-radius:18px;
+    text-align:center;
+    color:white;
+    box-shadow:0 10px 40px rgba(0,0,0,0.3);
+}
+
+.login-box h1{
+    font-family:'Montserrat',sans-serif;
+    margin-bottom:10px;
+}
+
+.login-box p{
+    margin-bottom:30px;
+    opacity:0.8;
+}
+
+.input-box{
+    margin-bottom:20px;
+}
+
+.input-box input{
+    width:100%;
+    padding:14px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    background:rgba(255,255,255,0.12);
+    color:white;
+    font-size:15px;
+}
+
+.input-box input::placeholder{
+    color:rgba(255,255,255,0.7);
+}
+
+.login-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:var(--accent);
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    transform:translateY(-2px);
+}
+
+.error{
+    margin-top:15px;
+    color:#ffb3b3;
+    font-size:14px;
+}
+
+.logo{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="logo">🛍️</div>
+
+    <h1>Notice Men's Wear Admin</h1>
+
+    <p>Secure Admin Access</p>
+
+    <div class="input-box">
+        <input type="text" id="username" placeholder="Username">
+    </div>
+
+    <div class="input-box">
+        <input type="password" id="password" placeholder="Password">
+    </div>
+
+    <button class="login-btn" onclick="login()">
+        Login
+    </button>
+
+    <div class="error" id="error"></div>
+
+</div>
+
+<script>
+
+function login(){
+
+    const username =
+    document.getElementById("username").value;
+
+    const password =
+    document.getElementById("password").value;
+
+    const adminUser = "notice admin";
+    const adminPass = "admin@9848";
+
+    if(username === adminUser &&
+       password === adminPass){
+
+        localStorage.setItem(
+            "adminLoggedIn",
+            "true"
+        );
+
+        window.location.href = "admin.html";
+
+    } else {
+
+        document.getElementById("error")
+        .innerText =
+        "Invalid Username or Password";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

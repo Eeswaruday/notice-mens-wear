@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Admin | Notice Men's Wear</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin-body">
+    <main class="admin-shell">
+        <header class="admin-header">
+            <div>
+                <p class="admin-kicker">Notice Men's Wear</p>
+                <h1>Product Admin</h1>
+                <button class="logout-btn" onclick="logout()">
+                    Logout
+                </button>
+            </div>
+            <a href="collections.html" class="admin-link"><i class="fas fa-store"></i> View Shop</a>
+        </header>
+
+        <section class="admin-toolbar">
+            <button id="addProductBtn"><i class="fas fa-plus"></i> Add Product</button>
+            <button id="openFileBtn"><i class="fas fa-folder-open"></i> Open products.js</button>
+            <button id="saveFileBtn"><i class="fas fa-save"></i> Save to File</button>
+            <button id="downloadBtn"><i class="fas fa-download"></i> Download File</button>
+        </section>
+
+        <section class="admin-github">
+            <div>
+                <h2>GitHub Auto Save</h2>
+                <p>Fill this once per browser session. Save to GitHub will update <strong>data/products.js</strong>. Netlify deploys automatically when your site is connected to that GitHub repo.</p>
+            </div>
+            <div class="github-grid">
+                <input id="githubOwner" placeholder="GitHub owner">
+                <input id="githubRepo" placeholder="Repository name">
+                <input id="githubBranch" placeholder="Branch" value="main">
+                <input id="githubToken" placeholder="Fine-grained token" type="password">
+                <button id="githubSaveBtn"><i class="fab fa-github"></i> Save to GitHub</button>
+            </div>
+        </section>
+
+        <section class="admin-products">
+            <div class="admin-products-head">
+                <h2>Products and Prices</h2>
+                <span id="statusText">Ready</span>
+            </div>
+            <div id="adminProducts" class="admin-products-list"></div>
+        </section>
+    </main>
+
+    <script src="data/products.js"></script>
+    <script src="js/admin.js"></script>
+    <body class="admin-body">
+
+<script>
+
+if(localStorage.getItem("adminLoggedIn") !== "true"){
+
+    window.location.href = "login.html";
+
+}
+
+
+function logout(){
+
+    localStorage.removeItem("adminLoggedIn");
+
+    window.location.href = "login.html";
+
+}
+
+</script>
+</body>
+</html>
